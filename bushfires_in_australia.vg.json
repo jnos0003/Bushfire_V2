@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "vconcat": [
     {
-      "width": 1000,
-      "height": 1000,
+      "width": 700,
+      "height": 700,
       "title": {"fontSize": 15, "text": "Suspected bushfires in January and their intensity"},
       "projection": {"type": "equirectangular"},
       "layer": [{
@@ -42,7 +42,7 @@
       }]
     },
     {
-      "width": 1000,
+      "width": 700,
       "height":100,
       "title": {"fontSize": 15, "text": "Average intensity on associated dates  (used to filter)"},
       "data": {
