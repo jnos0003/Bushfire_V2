@@ -26,7 +26,7 @@
         "mark": {
           "type": "square", 
           "tooltip": {"content" : "encoding"},
-          "size": 1
+          "size": 10
         },
         "transform": [{"filter":{"param": "brush"}}],
         "encoding": {
@@ -51,6 +51,7 @@
         "format": {"type": "csv"}
       },
       "mark": "bar",
+      "tooltip": {"content" : "encoding"},
       "params":[{"name": "brush", "select": {"type": "interval", "encodings": ["x"]}}],
       "encoding": {
         "x": {
