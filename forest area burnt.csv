@@ -1,9 +1,9 @@
 state,total_forest_area ,total_area_burnt ,native_forest_area,native_forest_area_burnt
 Australian Capital Territory,142,83,130,83
-New South Wales,"20,368","5,123","19,925","5,015"
-Northern Territory,"23,735",0,"23,686",0
-Queensland,"51,830",514,"51,580",510
-South Australia,"5,060",137,"4,856",118
-Tasmania,"3,699",30,"3,342",27
-Victoria,"8,222","1,457","7,645","1,444"
-Western Australia,"20,981","1,144","20,450","1,138"
+New South Wales,20368,5123,19925,5015
+Northern Territory,23735,0,23686,0
+Queensland,51830,514,51580,510
+South Australia,5060,137,4856,118
+Tasmania,3699,30,3342,27
+Victoria,8222,1457,7645,1444
+Western Australia,20981,1144,20450,1138
