@@ -4,15 +4,48 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
   <script src="vega_lite_vis.js"></script>
   <title>BUSHFIRES IN AUSTRALIA</title>
+  <link rel="stylesheet" href = "style.css">
 </head>
 
-<body>
-  <h1> Week 10 homework submission </h1>
-  <div id="map_aus">Map of Australia</div>
+<body style="background-color: lightgrey; margin: 1vw; width: 96vw;height: 100vh;">
+  <div style="background-color: lightcoral;",margin = "0"> 
+    <h1 style="color:black; text-align: centre;">Bushfires in Australia</h1>
+  </div>
+  <div class="pure-g" style="vertical-align: center;">
+    <div class="pure-u-1-2">
+      <div>
+        <h2>Map of Australia and suspected fire locations in 2019-2020</h2>
+        <p>The Map below demonstrates the scope of the fires across australia using data from NASA's MODIS satellite that measured the likelyhood of a fire using image processing software, therefore, the pixels bellow represent a 1x1 km square where and average temperature is meausred in kelvin. The fires were concentrated in Victoria and New South Wales; however the there were also fires in other regions of australia and thus an entire map of Australia is shown</p>
+      </div>
+      <div id = "bushfireMapAus" style="vertical-align: center;">
+      </div>
+    </div>
+    <div class="pure-u-1-2">
+      <div id="text" style="text-align: center; vertical-align: middle;" class="pure-u-2-2">
+        <h2>What happend and why is this relevant?</h2>
+        <p style = "font-size: 20px;">The 2019-2020 bushfires in Australia, also known as "Black Summer," had a devastating impact on the environment, economy, and communities. Over 18 million hectares of land were burned, destroying thousands of homes, killing or displacing nearly three billion animals, and pushing some species closer to extinction. The fires also caused significant loss of life, with 33 people directly killed and hundreds more dying from smoke inhalation-related conditions. Ecologically, vast tracts of forests were scorched, altering ecosystems and increasing carbon emissions. Economically, the fires caused billions of dollars in damages, particularly to the agriculture, tourism, and insurance sectors. The long-term effects of the bushfires have raised urgent concerns about climate change, prompting calls for stronger environmental policies and firefighting strategies.</p>
+      </div>
+      <div id="image" class="pure-u-2-2">
+        <img style="width:48vw;height:45vh; text-align: center;" src="https://recovery.preventionweb.net/sites/default/files/styles/ultrawide_16_6/public/2022-08/Collection%20page%20image%20Australian%20Bushfire%202019-20.jpg">
+      </div>
+    </div>  
+    <div class="pure-u-1-2">
+      <div id = "NativefireBarAus" style="vertical-align: center;">
+      </div>
+    </div>
+    <div class="pure-u-1-2">
+      <div id="NativefireBarAus2">
+      </div>
+    </div>  
+  </div>
 </body>
-</html>
+
+</html'>
+
+
