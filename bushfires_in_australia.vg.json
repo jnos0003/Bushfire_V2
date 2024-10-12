@@ -1,70 +1,79 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background":"lightgrey",
   "vconcat": [
     {
-      "width": 800,
-      "height":800,
-      "title": {"fontSize": 15, "text": "Suspected bushfires in January and their intensity"},
+      "width": 550,
+      "height":300,
       "projection": {"type": "equirectangular"},
       "layer": [{
           "data": {
-            "url": "https://raw.githubusercontent.com/jnos0003/Bushfire_data/refs/heads/main/STE_2016_AUST.json",
-            "format": {"type": "topojson", "feature": "STE_2016_AUST"}
+            "url": "https://raw.githubusercontent.com/jnos0003/Bushfire_V2/refs/heads/main/STE_2021_AUST_GDA2020.json",
+            "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA2020"}
           },
           "mark": {
             "type": "geoshape", 
-            "fill": "grey", 
+            "fill": "beige", 
             "stroke": "black"
           }
       },
       {
         "data": {
-          "url": "https://raw.githubusercontent.com/jnos0003/Bushfire_data/refs/heads/main/1_1_20_to_11_1_2020_MODIS.csv",
+          "url": "https://raw.githubusercontent.com/jnos0003/Bushfire_V2/refs/heads/main/1_8_19_to_11_1_2020_MODIS.csv",
           "name": "modis_data",
           "format": {"type": "csv"}
         },
+        "transform": [
+          {"filter": "datum.brightness > 380"}, 
+          {"filter": {"param": "brush"}},
+          {"timeUnit":"month", "field": "acq_date", "as":"month"}
+        ],
         "mark": {
           "type": "square", 
           "tooltip": {"content" : "encoding"},
           "size": 1
         },
-        "transform": [{"filter":{"param": "brush"}}],
         "encoding": {
           "longitude": {"field": "longitude", "type": "quantitative"},
           "latitude" : {"field": "latitude", "type"  : "quantitative"},
           "color": {
             "field": "brightness",
-            "scale": {"domain": {"param": "brush"}},
+            "scale": {"scheme":"reds"},
             "type": "quantitative",
-            "title": "intensity"
+            "title": "temperature (K)"
           }
         }
-      }]
+      }
+    ]
     },
     {
-      "width": 800,
+      "width": 550,
       "height":100,
-      "title": {"fontSize": 15, "text": "Average intensity on associated dates  (used to filter)"},
+      "title": "average temperature of zones over time [used as a brush filter]",
       "data": {
-        "url": "https://raw.githubusercontent.com/jnos0003/Bushfire_data/refs/heads/main/1_1_20_to_11_1_2020_MODIS.csv",
+        "url": "https://raw.githubusercontent.com/jnos0003/Bushfire_V2/refs/heads/main/1_8_19_to_11_1_2020_MODIS.csv",
         "name": "modis_data",
         "format": {"type": "csv"}
       },
-      "mark": "bar",
-      "tooltip": {"content" : "encoding"},
-      "params":[{"name": "brush", "select": {"type": "interval", "encodings": ["x"]}}],
+      "transform": [
+        {"filter": "datum.brightness > 350"}, 
+        {"timeUnit":"month", "field": "acq_date", "as":"month"}
+      ],
+      "params": [{
+        "name": "brush",
+        "select": {"type": "interval", "encodings": ["x"]}
+      }],
+      "mark":"line",
       "encoding": {
-        "x": {
-          "timeUnit": "month",      
+        "x":{
+          "timeUnit": "month",
+          "field":"month",
           "type": "temporal",
-          "field": "acq_date",
-          "title": "time of year"
-          
-        },  
-        "y": {
+          "bin": {"maxbins": 12}
+        },
+        "y":{
           "aggregate": "mean",
-          "field": "brightness",
-          "title": "temperature"
+          "field":"brightness"
         }
       }
     }
