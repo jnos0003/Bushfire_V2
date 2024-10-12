@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background":"lightgrey",
+  "width": 550,
+  "height":200,
+  "layer":[{
+      "title": {
+        "fontSize": 15,
+        "text": "Total forest area burned by state"
+      },
+      "data": {
+        "url": "https://raw.githubusercontent.com/jnos0003/Bushfire_V2/refs/heads/main/forest%20area%20burnt.csv",
+        "format": {"type":"csv"}
+      },
+      "mark": {"type":"bar","tooltip":{"content": "encoding"},"color":"lightcoral","align":"center"},
+      "encoding": {
+        "x":{
+          "field":"percentOfTotalAreaBurned",
+          "title": "% Total area burned",
+          "type": "quantitative"
+        },
+        "y": {
+          "field":"state",
+          "title": "Australian States and Territories",
+          "type":"ordinal"
+        }
+      }
+    }
+  ]
+}
