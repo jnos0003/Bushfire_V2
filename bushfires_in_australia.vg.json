@@ -25,8 +25,7 @@
         },
         "transform": [
           {"filter": "datum.brightness > 380"}, 
-          {"filter": {"param": "brush"}},
-          {"timeUnit":"month", "field": "acq_date", "as":"month"}
+          {"filter": {"param": "brush"}}
         ],
         "mark": {
           "type": "square", 
@@ -38,7 +37,7 @@
           "latitude" : {"field": "latitude", "type"  : "quantitative"},
           "color": {
             "field": "brightness",
-            "scale": {"scheme":"reds"},
+            "scale": {"scheme":"inferno"},
             "type": "quantitative",
             "title": "temperature (K)"
           }
@@ -56,24 +55,24 @@
         "format": {"type": "csv"}
       },
       "transform": [
-        {"filter": "datum.brightness > 350"}, 
-        {"timeUnit":"month", "field": "acq_date", "as":"month"}
+        {"filter": "datum.brightness > 380"}
       ],
       "params": [{
         "name": "brush",
         "select": {"type": "interval", "encodings": ["x"]}
       }],
-      "mark":"line",
+      "mark": {"type":"line","color":"red"},
       "encoding": {
         "x":{
-          "timeUnit": "month",
-          "field":"month",
+          "timeUnit":"month",
+          "field":"acq_date",
           "type": "temporal",
-          "bin": {"maxbins": 12}
+          "title": "Aquisition Date"
         },
         "y":{
-          "aggregate": "mean",
-          "field":"brightness"
+          "aggregate":"average",
+          "field":"brightness",
+          "title":"Average temperature (K)"
         }
       }
     }
